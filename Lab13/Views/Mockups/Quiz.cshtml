@@ -1,0 +1,27 @@
+﻿@{
+	ViewData["Title"] = "Quiz";
+}
+
+<style type="text/css">
+    h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+
+	.btns {
+		margin-top: 20px;
+	}
+</style>
+
+<div class="text-left">
+	<h1 class="display-4">Quiz</h1>
+	@using (Html.BeginForm())
+	{
+		<p>@ViewData["Num1"] @ViewData["Oper"] @ViewData["Num2"] =</p>
+		@Html.TextBox("Answer", "", new {type="number"})
+		<div class="btns">
+			<input type="submit" value="Next" name="Action" style="border-radius:3px; border-width:thin;"/>
+			<input type="submit" value="Finish" name="Action" style="color:white; background:blue; border-radius:3px; border-width:thin;"/>
+		</div>
+	}
+</div>

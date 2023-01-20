@@ -1,0 +1,37 @@
+﻿@{
+	ViewData["Title"] = "QuizResult";
+}
+@using Lab13.Models;
+<style type="text/css">
+	h1 {
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: bold;
+	}
+
+	li {
+		list-style-type: none;
+	}
+</style>
+<div class="text-left">
+	<h1>Quiz results</h1>
+	@{
+		if ((bool)ViewData["QuizValid"])
+		{
+			List<int> Num1 = (List<int>)ViewData["Num1"];
+			List<int> Num2 = (List<int>)ViewData["Num2"];
+			List<string> Oper = (List<string>)ViewData["Oper"];
+			List<int> UserAnswers = (List<int>)ViewData["UserAnswers"];
+			<h3>Right answers @ViewData["CorrectAnswersAmount"] out @ViewData["QuestionsAmount"]</h3>
+			<ul>
+				@for (int i = 0; i < (int)ViewData["QuestionsAmount"]; i++)
+				{
+					<li>@Num1[i] @Oper[i] @Num2[i] = @UserAnswers[i]</li>
+				}
+			</ul>
+		}
+		else
+		{
+			<h3>Finish the quiz before checking answers!</h3>			
+		}
+	}
+</div>
